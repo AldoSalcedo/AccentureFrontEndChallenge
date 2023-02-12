@@ -16,4 +16,12 @@ const fetcher = async () => {
   return responseObject.data
 }
 
+export const getPostsByUserId = (id) => {
+  return fetcher(`?userId=${id}`)
+}
+
+export const getPostsById = (id) => {
+  return fetcher(`?id=${id}`)
+}
+
 export default fetcher

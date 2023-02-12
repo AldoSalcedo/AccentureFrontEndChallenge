@@ -7,7 +7,14 @@ export const Header = () => {
     <div className="header">
       <Card>
         <Card.Body>
-          <Card.Subtitle className="mb-3 text-muted">
+          <Card.Subtitle
+            className="mb-3"
+            style={{
+              fontSize: '20px',
+              fontWeight: 'bold',
+              color: 'orange',
+            }}
+          >
             [ Making your Life Easier ]
           </Card.Subtitle>
           <Card.Title>Discovering the World</Card.Title>

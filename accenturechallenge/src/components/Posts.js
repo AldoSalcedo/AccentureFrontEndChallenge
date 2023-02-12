@@ -1,50 +1,39 @@
-import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
-import fetcher from '../fetcher'
+import { Link } from 'react-router-dom'
 
-const Posts = () => {
-  const [posts, setPosts] = useState([])
-  console.log(posts)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetcher()
-      setPosts(Array.isArray(data) ? data : [])
-    }
-
-    fetchData()
-  }, [])
-
+export const Posts = ({ posts }) => {
   return (
     <>
       <Container>
         <Row>
-          {posts.map((post) => (
+          {posts?.map((post) => (
             <Col md={6} xs={12} key={post.id} style={{ marginBottom: '20px' }}>
-              <Card
-                style={{
-                  backgroundImage: `url(https://source.unsplash.com/random)`,
-                  backgroundSize: 'cover',
-                  backgroundRepeat: 'no-repeat',
-                  height: '300px',
-                  position: 'relative',
-                }}
-              >
-                <Card.Body
+              <Link to={`/posts/${post.id}`}>
+                <Card
                   style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    right: 0,
-                    width: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    padding: '10px',
-                    color: 'white',
+                    backgroundImage: `url(https://source.unsplash.com/random)`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    height: '300px',
+                    position: 'relative',
                   }}
                 >
-                  <Card.Title>{post.title}</Card.Title>
-                  <Card.Text>{post.body}</Card.Text>
-                </Card.Body>
-              </Card>
+                  <Card.Body
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      right: 0,
+                      width: '100%',
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      padding: '10px',
+                      color: 'white',
+                    }}
+                  >
+                    <Card.Title>{post.title}</Card.Title>
+                    <Card.Text>{post.body}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Link>
             </Col>
           ))}
         </Row>
@@ -52,5 +41,3 @@ const Posts = () => {
     </>
   )
 }
-
-export default Posts

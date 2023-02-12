@@ -38,6 +38,28 @@
 }
 
 .btn-circle {
+  position: fixed;
+  top: 2.5rem;
+  right: 5.5rem;
   width: 50px;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-circle {
+    top: 2.3rem;
+    right: 5.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-toolbar {
+    justify-content: center !important;
+  }
 }

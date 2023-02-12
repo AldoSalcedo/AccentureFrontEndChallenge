@@ -1,4 +1,4 @@
-import { Card, ButtonGroup, Button } from 'react-bootstrap'
+import { Card, ButtonGroup, Button, ButtonToolbar } from 'react-bootstrap'
 import { CreatePost } from './CreatePost'
 
 export const Header = (props) => {
@@ -6,7 +6,7 @@ export const Header = (props) => {
 
   return (
     <div className="header">
-      <Card style={{ height: '13rem', margin: '2rem 5rem 1.5rem 5rem' }}>
+      <Card style={{ height: '14rem', margin: '2rem 5rem 1.5rem 5rem' }}>
         <Card.Body>
           <Card.Subtitle
             className="mb-3"
@@ -20,13 +20,15 @@ export const Header = (props) => {
           </Card.Subtitle>
           <CreatePost />
           <Card.Title>{title}</Card.Title>
-          <ButtonGroup aria-label="Toolbar with button groups">
-            {buttonLabels.map((label, index) => (
-              <Button variant="outline-secondary" key={index}>
-                {label}
-              </Button>
-            ))}
-          </ButtonGroup>
+          <ButtonToolbar className="d-flex d-md-block">
+            <ButtonGroup aria-label="Toolbar with button groups" size="sm">
+              {buttonLabels.map((label, index) => (
+                <Button variant="outline-secondary" key={index}>
+                  {label}
+                </Button>
+              ))}
+            </ButtonGroup>
+          </ButtonToolbar>
         </Card.Body>
       </Card>
     </div>
